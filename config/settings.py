@@ -16,7 +16,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 CSRF_TRUSTED_ORIGINS = [
-    "https://web-production-5de0.up.railway.app/",
+    "https://web-production-b06f.up.railway.app/",
     # "http://localhost:3030",
     # "http://127.0.0.1:3000",
 ]
@@ -25,7 +25,7 @@ CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
 
 CORS_ALLOWED_ORIGIN_REGEXES = [
-    "https://web-production-5de0.up.railway.app/",
+    "https://web-production-b06f.up.railway.app/",
 ]
 
 # Application definition
