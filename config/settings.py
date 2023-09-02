@@ -1,5 +1,5 @@
 import os
-from pathlib import Path
+from pathlib import Path 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -15,17 +15,19 @@ SECRET_KEY = 'django-insecure-4(ezx9^e+49d7q!&ezlgk3ma5!gtiw0u##s4f46wo(kwzw*p$4
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
+
+CORS_ALLOWED_ORIGINS =["https://web-production-b06f.up.railway.app"]
+    
 CSRF_TRUSTED_ORIGINS = [
-    "https://web-production-b06f.up.railway.app/",
-    # "http://localhost:3030",
-    # "http://127.0.0.1:3000",
+    "https://web-production-b06f.up.railway.app",
 ]
 
-CORS_ORIGIN_ALLOW_ALL = True
-CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_ALL_ORIGINS: True
+CORS_ALLOW_CREDENTIALS: True
+
 
 CORS_ALLOWED_ORIGIN_REGEXES = [
-    "https://web-production-b06f.up.railway.app/",
+    r"^https://\w+\.web-production-b06f.up.railway\.app$",
 ]
 
 # Application definition
@@ -38,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-       #package
+       #package 
+    "corsheaders",
     'rest_framework',
     'rest_framework.authtoken',
     'drf_yasg',
@@ -48,7 +51,6 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'dj_rest_auth.registration',
     'whitenoise.runserver_nostatic',
-    "corsheaders",
 
     #local apps
     'books',
@@ -56,9 +58,9 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
-    "corsheaders.middleware.CorsMiddleware",
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -140,6 +142,7 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
+
 
 
 # Static files (CSS, JavaScript, Images)
